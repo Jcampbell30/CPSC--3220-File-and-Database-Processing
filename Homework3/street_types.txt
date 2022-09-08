@@ -1,0 +1,1 @@
+Boulevard..;Lane..;Drive..;Way..;Avenue..;Street..;Manor..;Parkway..;Circle..;Loop
