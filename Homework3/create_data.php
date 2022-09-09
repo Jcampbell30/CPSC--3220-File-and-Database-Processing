@@ -27,10 +27,15 @@
     {
         for($j = 0; $j < count($typeArr[$i]); $j++)
         {
-            array_push($typedata,$typeArr[$i][$j]);
+            if($typeArr[$i][$j]!= NULL)
+            {
+                array_push($typedata,$typeArr[$i][$j]);
+            }
+            
         }
     }
-    $typedata = array_filter($typedata);
+    
+
   
 
     //A program to read values from streetnames 
@@ -67,7 +72,7 @@
             $lastname[] = $line;
         }
 		fclose($last);
- 
+
         
         //function to return a random element in an array
         function randArray($a)
@@ -125,6 +130,27 @@
         
         fclose($myfile);//closing output file
         print("</table>");//closing table 
+        
+        print("<pre>First names ");
+        print_r($firstname);
+        print("</pre>");
+
+        print("<pre>Last names ");
+        print_r($lastname);
+        print("</pre>");
+
+        print("<pre>Street names ");
+        print_r($streetdata);
+        print("</pre>");
+
+        print("<pre>Street types ");
+        print_r($typedata);
+        print("</pre>");
+
+        print("<pre>Domain names ");
+        print_r($domain);
+        print("</pre>");
+
         print (" <p><a href = \"start.html\">Home Page</a></p> ");
   
 	?>
