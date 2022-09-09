@@ -6,6 +6,7 @@
     {
         $typeNames = str_replace(str_split(';'), " ",$line3);
         $line3 = explode(".",$typeNames);
+        $line3 = str_replace(array("\r","\n"),"",$line3);
         $typeArr[] = $line3;
     }
     for($i = 0; $i < sizeof($typeArr); $i++)
@@ -16,8 +17,7 @@
         }
     }
     $typedata = array_filter($typedata);
-    fclose($typeFile);
-
+  
 
     //A program to read values from streetnames 
     $street = fopen("street_names.txt", 'r');
@@ -81,5 +81,58 @@
         print("<p>Random name value: ".randArray($firstname)." ".randArray($lastname).
         " and the street names is: ".randArray($streetdata)." ".randArray($typedata));
         print (" <p><a href = \"create_data.php\">Refresh</a></p> ");
+
+        print("<table border = '3'>");
+        print("<th>First Name</th><th>Last Name</th><th>Address</th><th>Email</th>");
+        $myfile = fopen("customers.txt", "w");
+        $strArr = [];  
+        $newArr = [];      
+        for($i = 0; $i < 25; $i++)
+        {
+            print("<tr>");
+            for($j = 0; $j < 4; $j++)
+            {
+                if($j == 0)
+                {   
+                    $tempOne = randArray($firstname);
+                    print("<td>".$tempOne."</td>");
+                
+                }
+                if($j == 1)
+                {
+                    $temp2 = randArray($lastname);
+                    print("<td>".$temp2."</td>");
+                
+                }
+                if($j == 2)
+                {
+                   $num = rand(100,999);
+                    $strt = randArray($streetdata);
+                    $t = randArray($typedata);
+                    print("<td align= 'center' >".$num." ".$strt." ".$t."</td>");
+                
+                }
+                if($j == 3)
+                {
+                    $myStr = "@hotmail.com";
+                    print("<td>".$tempOne.".".$temp2."".$myStr."</td>");
+                
+                }
+                
+            }
+            $txt = $tempOne.":".$temp2.":".$num." ".$strt.$t.":".$tempOne.".".$temp2."".$myStr;
+            $newArr = array_push($strArr,$txt);
+            fwrite($myfile,$txt);
+            fwrite($myfile,"\n");
+            print("</tr>");
+        }
+         print("<pre>");
+         print_r($strArr);
+         print("</pre>");
+
+        fclose($myfile);
         
+        print("</table>");
+
+           
 	?>
