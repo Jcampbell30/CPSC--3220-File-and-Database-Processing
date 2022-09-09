@@ -1,4 +1,25 @@
 <?php
+    //A program to read in domain names
+
+    $domainfile = fopen("domains.txt", "r");
+    while($line4 =fgets($domainfile))
+    {
+        $tmp = explode(".", $line4);
+        $i=0;
+        $j=0;
+
+        foreach($tmp as $piece) 
+        {
+        if(! ($i++ %3)) $j++;  
+         //increment every 2 
+        $result[$j] = $piece;
+        }
+    }
+
+
+
+
+    fclose($domainfile);
     //A program to read in values from street types
     $typeFile = fopen("street_types.txt", "r");
     $typedata = [];
@@ -130,8 +151,14 @@
          print_r($strArr);
          print("</pre>");
 
-        fclose($myfile);
+         print("<pre>");
+         print_r($result);
+         print("</pre>");
+
         
+
+        fclose($myfile);
+
         print("</table>");
 
            
