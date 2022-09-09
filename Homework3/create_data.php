@@ -1,25 +1,18 @@
 <?php
+ 
     //A program to read in domain names
-
     $domainfile = fopen("domains.txt", "r");
-    while($line4 =fgets($domainfile))
+    $line4 = fgets($domainfile);
+    $line4 = str_replace(array("\r","\n"),"",$line4);
+    $tmp = explode(".", $line4);
+
+    while ($tmp) 
     {
-        $tmp = explode(".", $line4);
-        $i=0;
-        $j=0;
-
-        foreach($tmp as $piece) 
-        {
-        if(! ($i++ %3)) $j++;  
-         //increment every 2 
-        $result[$j] = $piece;
-        }
-    }
-
-
-
-
+    $domain[] = implode('.', array_splice($tmp, 0, 2));
+    };
     fclose($domainfile);
+
+
     //A program to read in values from street types
     $typeFile = fopen("street_types.txt", "r");
     $typedata = [];
@@ -63,8 +56,9 @@
     $first = fopen("first_names.csv",'r');
     $line1 = fgets($first);
     $firstname = str_getcsv($line1);
-
     fclose($first);
+
+
     //A program to read in values from lastname 
 		$last =fopen("last_names.txt","r");
         while ($line = fgets($last))
@@ -73,59 +67,42 @@
             $lastname[] = $line;
         }
 		fclose($last);
-
-        //printing data
-        print("<pre>");
-        print_r($lastname);
-        print("</pre>");
-
-        print("<pre>");
-        print_r($firstname);
-        print("</pre>");
-
-
-        print("<pre>");
-        print_r($streetdata);
-        print("</pre>");
-
-
-         print("<pre>");
-         print_r($typedata);
-         print("</pre>");
  
+        
         //function to return a random element in an array
         function randArray($a)
         {
-            $value = array_rand($a);
-            return $a[$value];
+            $value = array_rand($a);//using built in function to return random value an array: storing in temporary variable called $value
+            return $a[$value];//return the array that was passed in as the parameter at index $value
         }
-        print("<p>Random name value: ".randArray($firstname)." ".randArray($lastname).
-        " and the street names is: ".randArray($streetdata)." ".randArray($typedata));
+     
+        //A link to refresh the page
         print (" <p><a href = \"create_data.php\">Refresh</a></p> ");
 
-        print("<table border = '3'>");
+        //creating a table of 25 random people generated from our arrays
+        print("<table class= 'center' border = '3'>");
         print("<th>First Name</th><th>Last Name</th><th>Address</th><th>Email</th>");
         $myfile = fopen("customers.txt", "w");
-        $strArr = [];  
-        $newArr = [];      
-        for($i = 0; $i < 25; $i++)
+    
+        
+        for($i = 0; $i < 25; $i++)//creating 25 random first_name,last_name,address#,street address,address type, and domain names.
         {
-            print("<tr>");
-            for($j = 0; $j < 4; $j++)
+            print("<tr>");//begin row
+            for($j = 0; $j < 4; $j++)// 4 columns = 4 arrays
             {
-                if($j == 0)
+                if($j == 0)//column zero = First name column
                 {   
                     $tempOne = randArray($firstname);
-                    print("<td>".$tempOne."</td>");
+                    print("<td align= 'center' >".$tempOne."</td>");
                 
                 }
-                if($j == 1)
+                if($j == 1)//column one: Last Name column
                 {
                     $temp2 = randArray($lastname);
-                    print("<td>".$temp2."</td>");
+                    print("<td align= 'center'>".$temp2."</td>");
                 
                 }
-                if($j == 2)
+                if($j == 2)//column two: Address column 
                 {
                    $num = rand(100,999);
                     $strt = randArray($streetdata);
@@ -133,33 +110,21 @@
                     print("<td align= 'center' >".$num." ".$strt." ".$t."</td>");
                 
                 }
-                if($j == 3)
+                if($j == 3)//column three: Email column
                 {
-                    $myStr = "@hotmail.com";
-                    print("<td>".$tempOne.".".$temp2."".$myStr."</td>");
+                    $myStr = "@".randArray($domain);
+                    print("<td align= 'center'>".$tempOne.".".$temp2."".$myStr."</td>");
                 
-                }
-                
+                }    
             }
-            $txt = $tempOne.":".$temp2.":".$num." ".$strt.$t.":".$tempOne.".".$temp2."".$myStr;
-            $newArr = array_push($strArr,$txt);
-            fwrite($myfile,$txt);
-            fwrite($myfile,"\n");
-            print("</tr>");
+            $txt = $tempOne.":".$temp2.":".$num." ".$strt.$t.":".$tempOne.".".$temp2."".$myStr;//storing string variables as $txt 
+            fwrite($myfile,$txt);//writing to customers.txt
+            fwrite($myfile,"\n");//writing a new line
+            print("</tr>");//ending row
         }
-         print("<pre>");
-         print_r($strArr);
-         print("</pre>");
-
-         print("<pre>");
-         print_r($result);
-         print("</pre>");
-
         
-
-        fclose($myfile);
-
-        print("</table>");
-
-           
+        fclose($myfile);//closing output file
+        print("</table>");//closing table 
+        print (" <p><a href = \"start.html\">Home Page</a></p> ");
+  
 	?>

@@ -1,0 +1,25 @@
+Scott:Vest:116 Duisberg Street:Scott.Vest@hotmail.com
+Alicia:Shoemaker:681 Joliet Drive:Alicia.Shoemaker@google.com
+Craig:Oglesby:927 Munger Street:Craig.Oglesby@facebook.com
+Erin:Wofford:730 Anapolis Drive:Erin.Wofford@facebook.com
+Sally:McCarter:540 Lillydale Circle:Sally.McCarter@hotmail.com
+Craig:Chisholm:572 Cam Ranh Loop:Craig.Chisholm@hotmail.com
+Fred:Gardiner:590 Bisling Parkway:Fred.Gardiner@hotmail.com
+Scott:Gunderson:549 Kowloon Street:Scott.Gunderson@gmail.com
+Scott:Hannon:400 Aurora Circle:Scott.Hannon@google.com
+Erin:Duggan:584 Anapolis Drive:Erin.Duggan@chattstate.edu
+Alicia:Larue:874 Anapolis Avenue:Alicia.Larue@exchange.com
+Leslie:Olvera:100 Korolev Avenue:Leslie.Olvera@hotmail.com
+Craig:Wofford:967 Hanoi Way:Craig.Wofford@utc.edu
+Claire:Smith:189 Purnia Loop:Claire.Smith@gmail.com
+Craig:Gardiner:107 Santiago Parkway:Craig.Gardiner@exchange.com
+Patricia:Grey:583 Botshebelo Avenue:Patricia.Grey@google.com
+Raymond:Olvera:743 AmrohaBoulevard:Raymond.Olvera@exchange.com
+Robert:Gafney:413 Izumisano Loop:Robert.Gafney@facebook.com
+Leslie:Smith:797 Okara Way:Leslie.Smith@gmail.com
+Conrad:Gruber:294 Aurora Drive:Conrad.Gruber@gmail.com
+Leslie:Swanson:895 KorolevBoulevard:Leslie.Swanson@yahoo.com
+Leslie:Lumpkin:568 Halifax Avenue:Leslie.Lumpkin@exchange.com
+Chris:Pitt:783 Imus Way:Chris.Pitt@gmail.com
+Raymond:Swanson:766 Hidalgo Drive:Raymond.Swanson@chattstate.edu
+Craig:Lumpkin:447 Kowloon Street:Craig.Lumpkin@yahoo.com
